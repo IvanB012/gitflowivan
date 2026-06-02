@@ -1,0 +1,262 @@
+:root {
+    --color-primario: #2563eb;
+    /* Azul principal */
+    --color-primario-hover: #1d4ed8;
+    --color-primario-light: #dbeafe;
+
+    --color-gris: #6b7280;
+    --color-gris-claro: #f3f4f6;
+    --color-gris-borde: #e5e7eb;
+
+    --color-blanco: #ffffff;
+    --color-fondo: #f9fafb;
+
+    --color-eliminar: #dc2626;
+    --color-eliminar-hover: #b91c1c;
+
+    --color-texto: #111827;
+    --color-completado-texto: #9ca3af;
+    --color-completado-fondo: #f9fafb;
+
+    --radio: 8px;
+    --sombra: 0 1px 4px rgba(0, 0, 0, 0.08);
+    --transicion: 0.2s ease;
+}
+
+/* ============================================================
+   RESET BÁSICO
+   ============================================================ */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    font-size: 1rem;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+ul {
+    list-style: none;
+}
+
+/* ============================================================
+   CONTENEDOR CENTRADO
+   ============================================================ */
+main {
+    max-width: 600px;
+    margin: 2.5rem auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* ============================================================
+   ENCABEZADO
+   ============================================================ */
+header {
+    background-color: var(--color-primario);
+    padding: 1.25rem 1rem;
+    text-align: center;
+}
+
+header h1 {
+    color: var(--color-blanco);
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* ============================================================
+   SECCIÓN: AGREGAR TAREA
+   ============================================================ */
+section[aria-label="Agregar tarea"] {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: var(--color-blanco);
+    border: 1px solid var(--color-gris-borde);
+    border-radius: var(--radio);
+    padding: 1rem;
+    box-shadow: var(--sombra);
+}
+
+section[aria-label="Agregar tarea"] label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-gris);
+    white-space: nowrap;
+}
+
+#campo-tarea {
+    flex: 1;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--color-gris-borde);
+    border-radius: var(--radio);
+    font-size: 0.95rem;
+    color: var(--color-texto);
+    background-color: var(--color-blanco);
+    transition: border-color var(--transicion), box-shadow var(--transicion);
+    outline: none;
+}
+
+#campo-tarea::placeholder {
+    color: #b0b7c3;
+}
+
+#campo-tarea:focus {
+    border-color: var(--color-primario);
+    box-shadow: 0 0 0 3px var(--color-primario-light);
+}
+
+#btn-agregar {
+    padding: 0.5rem 1.1rem;
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    border: none;
+    border-radius: var(--radio);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color var(--transicion), transform var(--transicion);
+    white-space: nowrap;
+}
+
+#btn-agregar:hover {
+    background-color: var(--color-primario-hover);
+    transform: translateY(-1px);
+}
+
+#btn-agregar:active {
+    transform: translateY(0);
+}
+
+/* ============================================================
+   LISTA DE TAREAS
+   ============================================================ */
+#lista-tareas {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/* ============================================================
+   TARJETA DE TAREA
+   ============================================================ */
+#lista-tareas li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: var(--color-blanco);
+    border: 1px solid var(--color-gris-borde);
+    border-radius: var(--radio);
+    padding: 0.85rem 1rem;
+    box-shadow: var(--sombra);
+    transition: box-shadow var(--transicion);
+}
+
+#lista-tareas li:hover {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Texto de la tarea ocupa el espacio disponible */
+#lista-tareas li span {
+    flex: 1;
+    font-size: 0.95rem;
+}
+
+/* ============================================================
+   ESTADO: TAREA PENDIENTE
+   ============================================================ */
+.tarea-pendiente span {
+    color: var(--color-texto);
+    text-decoration: none;
+}
+
+/* ============================================================
+   ESTADO: TAREA COMPLETADA
+   ============================================================ */
+.tarea-completada {
+    background-color: var(--color-completado-fondo) !important;
+    border-color: var(--color-gris-borde) !important;
+}
+
+.tarea-completada span {
+    text-decoration: line-through;
+    color: var(--color-completado-texto);
+}
+
+/* ============================================================
+   BOTÓN ELIMINAR
+   ============================================================ */
+.btn-eliminar {
+    padding: 0.35rem 0.75rem;
+    background-color: var(--color-eliminar);
+    color: var(--color-blanco);
+    border: none;
+    border-radius: var(--radio);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color var(--transicion), transform var(--transicion);
+    flex-shrink: 0;
+}
+
+.btn-eliminar:hover {
+    background-color: var(--color-eliminar-hover);
+    transform: translateY(-1px);
+}
+
+.btn-eliminar:active {
+    transform: translateY(0);
+}
+
+/* ============================================================
+   CONTADOR
+   ============================================================ */
+#contador {
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--color-gris);
+    font-weight: 500;
+    background-color: var(--color-blanco);
+    border: 1px solid var(--color-gris-borde);
+    border-radius: var(--radio);
+    padding: 0.6rem 1rem;
+    box-shadow: var(--sombra);
+}
+
+/* ============================================================
+   RESPONSIVE — MÓVIL (< 480px)
+   ============================================================ */
+@media (max-width: 480px) {
+    section[aria-label="Agregar tarea"] {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    section[aria-label="Agregar tarea"] label {
+        margin-bottom: 0.25rem;
+    }
+
+    #campo-tarea,
+    #btn-agregar {
+        width: 100%;
+    }
+
+    #btn-agregar {
+        text-align: center;
+    }
+
+    header h1 {
+        font-size: 1.3rem;
+    }
+}
