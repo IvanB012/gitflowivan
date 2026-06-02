@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Agenda de Tareas — gestiona y sigue el progreso de tus pendientes." />
+    <title>Agenda de Tareas</title>
+    <link rel="stylesheet" href="styless.css" />
+</head>
+
+<body>
+
+    <header>
+        <h1>Agenda de Tareas</h1>
+    </header>
+
+    <main>
+        <section aria-label="Agregar tarea">
+            <label for="campo-tarea">Nueva tarea:</label>
+            <input type="text" id="campo-tarea" name="campo-tarea" placeholder="Escribe una tarea..."
+                autocomplete="off" />
+            <button type="button" id="btn-agregar">Agregar</button>
+        </section>
+
+        <section aria-label="Lista de tareas">
+            <ul id="lista-tareas"></ul>
+        </section>
+
+        <footer>
+            <p id="contador">Total: 0 | Pendientes: 0</p>
+        </footer>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
